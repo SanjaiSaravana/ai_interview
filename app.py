@@ -113,4 +113,5 @@ def handle_report(data):
         emit('final_report', json.dumps({"feedback": "Error generating report."}))
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=5007)
+    port = int(os.environ.get("PORT", 5007))
+    socketio.run(app, host="0.0.0.0", port=port)
